@@ -55,7 +55,7 @@ abstract class Product implements Item {
     }
 
     public static void nameSort(){
-        
+
     }
     //constructor that sets the fields
     public Product(String productName) {

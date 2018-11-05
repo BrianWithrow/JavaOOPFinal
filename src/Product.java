@@ -5,7 +5,10 @@
  */
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 //Create an abstract type called Product that will implement the Item Interface.
 abstract class Product implements Item {
@@ -15,6 +18,9 @@ abstract class Product implements Item {
     private String manufacturer;
     private Date manufacturedOn;
     private String name;
+
+    //In step 14 I'm asked to make a collection for all items, I decided I would like to add an Arraylist.
+    static List items = new ArrayList();
 
     //Add an integer class variable called currentProductionNumber. This will store the next number to be
     //assigned to serialNumber.
@@ -54,9 +60,18 @@ abstract class Product implements Item {
         this.manufacturer = manufacturer;
     }
 
+    //In step 15 we are asked to create a sort that works for all devices made in the project.
+    //This is all best to do within Product, as all my other classes are children of it.
     public static void nameSort(){
-
+        Collections.sort(items);
+        //For testing purposes I created a print.
+        //System.out.println(items);
     }
+
+    public static void print(){
+        System.out.println(items);
+    }
+
     //constructor that sets the fields
     public Product(String productName) {
         manufacturer = "OraclProduction";
@@ -65,6 +80,7 @@ abstract class Product implements Item {
         name = productName;
         //New date fixed by Vanselow's request
         manufacturedOn = new Date();
+        items.add(productName);
     }
 
     //tostring method that will return:

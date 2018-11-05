@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Comparator;
 
 //Create an abstract type called Product that will implement the Item Interface.
-abstract class Product implements Item {
+abstract class Product implements Item, Comparable<Product> {
 
     //Product will have the following fields.
     private int serialNumber;
@@ -74,7 +75,7 @@ abstract class Product implements Item {
 
     //constructor that sets the fields
     public Product(String productName) {
-        manufacturer = "OraclProduction";
+        manufacturer = "OracleProduction";
         serialNumber = currentProductionNumber;
         currentProductionNumber++;
         name = productName;
@@ -86,7 +87,11 @@ abstract class Product implements Item {
     //tostring method that will return:
 
     public String toString() {
-        return "Manufacturer : " + manufacturer + "\nSerial Number: " +
-                serialNumber + "\nDate: " + manufacturedOn + "\nName: " + name;
+        return "Manufacturer : " + manufacturer + "\nSerial Number : " +
+                serialNumber + "\nDate : " + manufacturedOn + "\nName : " + name;
+    }
+
+    public int compareTo(Product prod1){
+        return this.name.compareTo(prod1.name);
     }
 }

@@ -8,13 +8,12 @@ public class AudioPlayer extends Product implements MultimediaControl{
 
     //Two fields for the class to have.
     private String audioSpecification;
-    private ItemType mediaType;
+    private ItemType mediaType = ItemType.AUDIO;
 
     //Constructor that takes in parameters and calls its parent constructor with super.
-    public AudioPlayer(String productName, String audioSpecification, ItemType mediaType) {
+    public AudioPlayer(String productName, String audioSpecification) {
         super(productName);
         this.audioSpecification = audioSpecification;
-        this.mediaType = mediaType;
     }
 
     //Rather than have actual code, the methods will respond with prints to let us know it is working.
@@ -42,7 +41,7 @@ public class AudioPlayer extends Product implements MultimediaControl{
     @Override
     public String toString() {
         return super.toString() +
-                "\nAudio Specification: " + audioSpecification +
-                "\nMedia Type: " + mediaType + "\n";
+                "\nAudio Spec : " + audioSpecification +
+                "\nType : " + mediaType;
     }
 }

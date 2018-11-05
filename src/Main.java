@@ -1,15 +1,20 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * Name: Brian Withrow
  * Description: Main class used for testing and execution of the project.
  * Date: 9/29/2018
  */
 
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
 
         //Here I am creating Widgets for testing. Reccomended by Professor for test code.
-        Widget w1 = new Widget("Widget ");
+        //Widget w1 = new Widget("Widget ");
         //System.out.println(w1.toString());
 
         //Tests for step 6's driver class step.
@@ -49,50 +54,76 @@ public class Main{
         //}
 
         //At this point I will be creating the test demonstration for part 15 of the collection and sort.
-        Widget w2 = new Widget("Toy ");
-        Widget w3 = new Widget("Microphone ");
-        Widget w4 = new Widget("Headphones ");
+        //Widget w2 = new Widget("Toy ");
+        //Widget w3 = new Widget("Microphone ");
+        //Widget w4 = new Widget("Headphones ");
 
-        Product.nameSort();
+        //Product.nameSort();
         // Output: Headphones, Microphone, Toy, Widget.
-    }
-}
 
-//This is a test Product, created so I can see that my serial numbers work, etc.
-class Widget extends AudioPlayer{
 
-    public Widget(String name){
-        super(name, name, ItemType.Audio);
-    }
-}
-
-class Monitor extends Screen{
-
-    public Monitor(){
-    }
-}
-
-//For step 13, I am forced to create a class to show how Multimedia's
-//methods are forced into the class, and will be free to use when implemented.
-class UniversalRemote implements MultimediaControl{
-
-    @Override
-    public void play() {
-
+        // Write one line of code to create an ArrayList of products
+        ArrayList products = new ArrayList();
+        // Write one line of code to call testCollection and assign the result to the ArrayList
+        products = testCollection();
+        // Write one line of code to sort the ArrayList
+        Collections.sort(products);
+        // Call the print method on the ArrayList
+        print(products);
     }
 
-    @Override
-    public void stop() {
 
+    // Step 15
+    // Complete the header for the testCollection method here
+
+    public static ArrayList<Product> testCollection() {
+
+        AudioPlayer a1 = new AudioPlayer("iPod Mini","MP3");
+        AudioPlayer a2 = new AudioPlayer("Walkman","WAV ");
+        MoviePlayer m1 = new MoviePlayer("DBPOWER MK101",
+                new Screen(" 720x480", 40, 22), MonitorType.LCD);
+        MoviePlayer m2 = new MoviePlayer("Pyle PDV156BK",
+                new Screen("1366x768", 40, 22), MonitorType.LED);
+
+        // Write one line of code here to create the collection
+        ArrayList products = new ArrayList();
+        products.add(a1);
+        products.add(a2);
+        products.add(m1);
+        products.add(m2);
+        return products;
     }
 
-    @Override
-    public void previous() {
-
+    // Step 16
+    // Create print method here
+    public static <Generic> void print(ArrayList<Generic> display){
+        for (Generic product : display)
+            System.out.println(product);
+        //System.out.println(display);
     }
 
-    @Override
-    public void next() {
+    //For step 13, I am forced to create a class to show how Multimedia's
+    //methods are forced into the class, and will be free to use when implemented.
+    class UniversalRemote implements MultimediaControl {
 
+        @Override
+        public void play() {
+
+        }
+
+        @Override
+        public void stop() {
+
+        }
+
+        @Override
+        public void previous() {
+
+        }
+
+        @Override
+        public void next() {
+
+        }
     }
 }

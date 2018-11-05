@@ -11,8 +11,10 @@ public class MoviePlayer extends Product implements MultimediaControl {
     private MonitorType monitor;
 
     //Intellij dictates I need a constructor with the super, but Step11 did not require it.
-    public MoviePlayer(String productName) {
+    public MoviePlayer(String productName, Screen screen, MonitorType monitor) {
         super(productName);
+        this.screen = screen;
+        this.monitor = monitor;
     }
 
     //Functionality the same as the audioplayer! Changed for movie, but will change when input to repl.it
@@ -37,7 +39,7 @@ public class MoviePlayer extends Product implements MultimediaControl {
     @Override
     public String toString() {
         return super.toString() +
-                "\nScreen: " + screen +
-                "\nMonitor: " + monitor;
+                "\nScreen : " + screen +
+                "\nMonitor Type : " + monitor;
     }
 }

@@ -70,6 +70,13 @@ public class Main {
         Collections.sort(products);
         // Call the print method on the ArrayList
         print(products);
+
+        //These are my part 18-20 checks to make sure it is all running and functional!
+        EmployeeInfo Brian = new EmployeeInfo();
+        System.out.println(Brian.getName());
+        System.out.println(Brian.getCode());
+        Brian.setDeptId();
+        System.out.println(Brian.getDeptId());
     }
 
 

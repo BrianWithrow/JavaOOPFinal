@@ -5,10 +5,15 @@
  */
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EmployeeInfo {
     StringBuilder name = new StringBuilder();
     String code;
+    String deptId;
+    Pattern p = Pattern.compile("^[A-Z][a-z]{3}[0-9]{2}$");
+    Scanner scanner = new Scanner(System.in);
 
     //This code triggers setting the name and employee code, both private methods.
     public EmployeeInfo() {
@@ -42,7 +47,6 @@ public class EmployeeInfo {
 
     private String inputName(){
         System.out.println("Please enter your first and last name: ");
-        Scanner scanner = new Scanner(System.in);
         String nameString = scanner.nextLine();
         return nameString;
     }
@@ -54,5 +58,41 @@ public class EmployeeInfo {
         else{
             return false;
         }
+    }
+
+    public String getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId() {
+        String temp;
+        temp = scanner.nextLine();
+        if (validId(temp)){
+            this.deptId = temp;
+        }
+        else{
+            this.deptId = "None01";
+        }
+    }
+
+    private String getId(){
+        if (validId(this.deptId)) {
+            return deptId;
+        }
+        else
+        {
+            return "None01";
+        }
+    }
+
+    private boolean validId(String id) {
+        //Martin suggested using Matcher for the check, wicked easy.
+        Matcher matcher = p.matcher(this.deptId);
+        return matcher.matches();
+    }
+
+    public String toString() {
+        return "Code: " + code
+                + "\n Dept Id: " + deptId;
     }
 }

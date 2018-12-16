@@ -13,6 +13,7 @@ Added: File writing ability to create a directory and text file with the data us
 I get it, want to see a class diagram for a quick understanding?
 Here you go.
 ![Class Diagram Image](https://i.imgur.com/5RT2PDN.png)
+![Code gif](https://i.imgur.com/jxCKJNG.gif)
 
 ### Thanks
 Built with Intellij, big thanks to Professor Vanselow and ORACLE.

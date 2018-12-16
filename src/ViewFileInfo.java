@@ -11,6 +11,10 @@ import java.io.IOException;
 
 public class ViewFileInfo {
 
+  /**
+   * Driver to test out our ProcessFiles functionality only.
+   * @param args Mandatory args.
+   */
   public static void main(String[] args) {
 
     try {

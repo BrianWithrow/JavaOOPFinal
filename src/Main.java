@@ -16,6 +16,12 @@ public class Main {
   // I made a products list global to be shared throughout my main for convenience.
   private static ArrayList products = new ArrayList();
 
+  /**
+   * Main clause, returns when finished, executes UI and choices for user.
+   *
+   * @param args Mandatory args
+   * @throws IOException Mandatory to work with my ProcessFiles
+   */
   public static void main(String[] args) throws IOException {
     //For user input, we bring back handy scanner!
     Scanner scan = new Scanner(System.in);
@@ -106,6 +112,11 @@ public class Main {
   // Step 15
   // Complete the header for the testCollection method here
 
+  /**
+   * The sample code I was working with during testing. Left for relevancy to show generics.
+   *
+   * @return a product list of test sample items. Created to show generic values.
+   */
   public static ArrayList<Product> testCollection() {
 
     AudioPlayer a1 = new AudioPlayer("iPod Mini", "MP3");
@@ -126,6 +137,13 @@ public class Main {
 
   // Step 16
   // Create print method here.
+
+  /**
+   * Will take an Arraylist of products and print them. Convenient save of time for printing!
+   *
+   * @param display Takes in the arraylist to print
+   * @param <T> Needs to be generic to work outright.
+   */
   public static <T> void print(ArrayList<T> display) {
     for (T product : display) {
       System.out.println(product);
@@ -158,6 +176,9 @@ public class Main {
     }
   }
 
+  /**
+   * addProducts is a void call to keep main less cluttered. Will add products into an arraylist.
+   */
   public static void addProducts() {
     //For user input, we bring back handy scanner!
     Scanner scan = new Scanner(System.in);
@@ -292,8 +313,10 @@ public class Main {
     }
   }
 
-  //This method is going to be a better way to be
-  // called to find out how many Objects are in our list.
+  /**
+   * This method is going to be a better way to be called to find out how many Objects are in our
+   * list.
+   */
   public static void howMany() {
     Scanner scan = new Scanner(System.in);
     boolean userContinues = true;

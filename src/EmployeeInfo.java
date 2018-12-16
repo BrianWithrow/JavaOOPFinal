@@ -60,8 +60,10 @@ public class EmployeeInfo {
     return deptId;
   }
 
+  /**
+   * Sets the department ID, but also checks to make sure the ID is valid.
+   */
   public void setDeptId() {
-    //In this method, the set dept id also checks to make sure the ID is valid.
     String temp;
     temp = scanner.nextLine();
     if (validId(temp)) {

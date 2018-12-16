@@ -9,7 +9,12 @@ public class MoviePlayer extends Product implements MultimediaControl {
   private Screen screen;
   private MonitorType monitor;
 
-  //Intellij dictates I need a constructor with the super, but Step11 did not require it.
+  /**
+   * Constructor for my movie player. Will create the object.
+   * @param productName The name of our movie player.
+   * @param screen The screen that our movie player has.
+   * @param monitor The monitortype refers to LED or LCD.
+   */
   public MoviePlayer(String productName, Screen screen, MonitorType monitor) {
     super(productName);
     this.screen = screen;

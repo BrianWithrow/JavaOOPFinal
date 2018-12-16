@@ -126,8 +126,8 @@ public class Main {
 
   // Step 16
   // Create print method here.
-  public static <Generic> void print(ArrayList<Generic> display) {
-    for (Generic product : display) {
+  public static <T> void print(ArrayList<T> display) {
+    for (T product : display) {
       System.out.println(product);
     }
     //System.out.println(display);

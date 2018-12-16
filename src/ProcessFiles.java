@@ -81,6 +81,7 @@ public class ProcessFiles {
         String updatedToString = emp.toString().replaceAll("\n", System.lineSeparator());
         fW.write(updatedToString);
         fW.write(System.lineSeparator());
+        fW.write(System.lineSeparator());
         fW.close();
     }
 
@@ -104,6 +105,7 @@ public class ProcessFiles {
         System.out.println("Your information has been saved to: " + writeProductText.getPath());
 
         fW.write(updatedToString);
+        fW.write(System.lineSeparator());
         fW.write(System.lineSeparator());
         fW.close();
     }

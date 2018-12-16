@@ -87,6 +87,6 @@ public class EmployeeInfo {
 
   public String toString() {
     return "Code: " + code
-        + "\n Dept Id: " + deptId;
+        + "\nDept Id: " + deptId;
   }
 }

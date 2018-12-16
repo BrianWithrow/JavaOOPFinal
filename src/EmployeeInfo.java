@@ -5,54 +5,88 @@
  */
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class EmployeeInfo {
-    StringBuilder name = new StringBuilder();
-    String code;
 
-    //This code triggers setting the name and employee code, both private methods.
-    public EmployeeInfo() {
-        setName();
-    }
+  StringBuilder name = new StringBuilder();
+  String code;
+  String deptId;
+  Pattern regex = Pattern.compile("^[A-Z][a-z]{3}[0-9]{2}$");
+  Scanner scanner = new Scanner(System.in);
 
-    //
-    public StringBuilder getName(){
-       return name;
-    }
+  //This code triggers setting the name and employee code, both private methods.
+  public EmployeeInfo() {
+    setName();
+  }
 
-    public String getCode(){
-        return code;
-    }
+  //
+  public StringBuilder getName() {
+    return name;
+  }
 
-    private void setName(){
-        String nameString = inputName();
-        //Stringbuilder accepts a string as a parameter
-        name = new StringBuilder(nameString);
-        createEmployeeCode(name);
-    }
+  public String getCode() {
+    return code;
+  }
 
-    private void createEmployeeCode(StringBuilder name){
-        if (checkName(name)) {
-            code = name.charAt(0) + name.substring(name.indexOf(" "));
-        }
-        else{
-            code = "guest";
-        }
-    }
+  private void setName() {
+    String nameString = inputName();
+    //Stringbuilder accepts a string as a parameter
+    name = new StringBuilder(nameString);
+    createEmployeeCode(name);
+  }
 
-    private String inputName(){
-        System.out.println("Please enter your first and last name: ");
-        Scanner scanner = new Scanner(System.in);
-        String nameString = scanner.nextLine();
-        return nameString;
+  private void createEmployeeCode(StringBuilder name) {
+    if (checkName(name)) {
+      code = name.charAt(0) + name.substring(name.indexOf(" "));
+    } else {
+      code = "guest";
     }
+  }
 
-    private boolean checkName(StringBuilder name){
-        if (name.indexOf(" ") != -1){   // This checks if there is an existance of " " in the string.
-            return true;
-        }
-        else{
-            return false;
-        }
+  private String inputName() {
+    System.out.println("Please enter your first and last name: ");
+    String nameString = scanner.nextLine();
+    return nameString;
+  }
+
+  private boolean checkName(StringBuilder name) {
+    // This checks if there is an existance of " " in the string.
+    return name.indexOf(" ") != -1;
+  }
+
+  public String getDeptId() {
+    return deptId;
+  }
+
+  public void setDeptId() {
+    //In this method, the set dept id also checks to make sure the ID is valid.
+    String temp;
+    temp = scanner.nextLine();
+    if (validId(temp)) {
+      this.deptId = temp;
+    } else {
+      this.deptId = "None01";
     }
+  }
+
+  private String getId() {
+    if (validId(this.deptId)) {
+      return deptId;
+    } else {
+      return "None01";
+    }
+  }
+
+  private boolean validId(String id) {
+    //Martin suggested using Matcher for the check, wicked easy.
+    Matcher matcher = regex.matcher(this.deptId);
+    return matcher.matches();
+  }
+
+  public String toString() {
+    return "Code: " + code
+        + "\n Dept Id: " + deptId;
+  }
 }
